@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<typeAliases>
+		<typeAlias alias="teacher"
+			type="egovframework.project.service.TeacherVO" />
+		<typeAlias alias="s_parents"
+			type="egovframework.project.service.S_ParentsVO" />
+		<typeAlias alias="rsvt"
+			type="egovframework.project.service.RsvtVO" />
+		<typeAlias alias="notice"
+			type="egovframework.project.service.NoticeVO" />
+		<typeAlias alias="inquiry"
+			type="egovframework.project.service.InquiryVO" />
+	</typeAliases>
+</configuration> 

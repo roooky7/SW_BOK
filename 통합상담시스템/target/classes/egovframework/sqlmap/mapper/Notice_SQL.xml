@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="egovframework.project.service.impl.NoticeMapper">
+
+	<resultMap type="notice" id="noticeResult">
+		<id property="ntc_no" column="ntc_no" />
+		<result property="ntc_ttl" column="ntc_ttl" />
+		<result property="ntc_writer" column="ntc_writer" />
+		<result property="ntc_cn" column="ntc_cn" />
+		<result property="ntc_ymd" column="ntc_ymd" />
+		<result property="ntc_imp" column="ntc_imp" />
+		<result property="ntc_cnt" column="ntc_cnt" />
+		<result property="ntc_img" column="ntc_img" />
+	</resultMap>
+
+	<insert id="insertNotice">
+		INSERT INTO NOTICE_BOARD(ntc_no, ntc_ttl, ntc_writer, ntc_cn, ntc_ymd,
+		ntc_imp, ntc_img)
+		VALUES (
+		#{ntc_no},
+		#{ntc_ttl},
+		#{ntc_writer},
+		#{ntc_cn},
+		NOW(),
+		#{ntc_imp},
+		#{ntc_img})
+	</insert>
+
+
+	<update id="updateNotice">
+		UPDATE NOTICE_BOARD
+		SET ntc_ttl=#{ntc_ttl},
+		ntc_writer=#{ntc_writer},
+		ntc_cn=#{ntc_cn},
+		ntc_imp=#{ntc_imp},
+		ntc_img =#{ntc_img}
+		WHERE ntc_no=#{ntc_no}
+	</update>
+
+	<update id="readCount">
+		update notice_BOARD set ntc_cnt =ntc_cnt +1
+		where
+		ntc_no=#{ntc_no}
+	</update>
+
+	<delete id="deleteNotice">
+		DELETE FROM NOTICE_BOARD
+		WHERE ntc_no=#{ntc_no}
+	</delete>
+
+	<select id="selectNotice" resultMap="noticeResult">
+		SELECT *
+		FROM NOTICE_BOARD
+		WHERE ntc_no=#{ntc_no}
+	</select>
+
+	<select id="selectNoticeList" resultMap="noticeResult">
+
+		(SELECT *, ROW_NUMBER() OVER() AS RN, 1 AS sort_order
+		FROM (
+		SELECT *
+		FROM NOTICE_BOARD
+		WHERE ntc_imp = 'Y'
+		ORDER BY ntc_no DESC
+		LIMIT 5
+		) AS import_notice)
+
+		UNION ALL
+
+		(SELECT
+		RES.*
+		FROM
+		(SELECT *, ROW_NUMBER() OVER() AS RN, 2 AS sort_order
+		FROM NOTICE_BOARD
+		WHERE 1 = 1
+		<if test="searchCondition == 'ntc_ttl'">
+			AND ntc_ttl LIKE CONCAT('%', #{searchKeyword}, '%')
+		</if>
+		<if test="searchCondition == 'ntc_cn'">
+			AND ntc_cn LIKE CONCAT('%', #{searchKeyword}, '%')
+		</if>
+		ORDER BY ntc_no DESC
+		) AS RES)
+		ORDER BY sort_order, ntc_no DESC
+		LIMIT #{recordCountPerPage}
+		OFFSET #{firstIndex};
+	</select>
+
+	<select id="selectNoticeListTotCnt" parameterType="notice"
+		resultType="int">
+		SELECT COUNT(*) +(SELECT COUNT(*) FROM NOTICE_BOARD WHERE ntc_imp
+		='Y') AS totCnt
+		FROM NOTICE_BOARD
+		WHERE 1=1
+		<if test="searchKeyword != null and searchKeyword != ''">
+			<choose>
+				<when test="searchCondition == 'ntc_ttl'">
+					AND ntc_ttl LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<when test="searchCondition == 'ntc_cn'">
+					AND ntc_cn LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+			</choose>
+		</if>
+	</select>
+</mapper>

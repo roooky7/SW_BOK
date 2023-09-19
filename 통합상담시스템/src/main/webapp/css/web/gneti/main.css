@@ -1,0 +1,101 @@
+@charset "utf-8";
+/*-----------------------------------------------------------
+Author : JY Jang
+Create date : 2022. 11. 09
+-----------------------------------------------------------*/
+
+#container{position:relative; overflow:hidden; margin:0 auto; }
+#container:after{content:""; display:block; clear:both; }
+#container ::-webkit-scrollbar { width:5px; }
+#container ::-webkit-scrollbar-thumb { background-color:#aaa; border-radius:10px; }
+#container ::-webkit-scrollbar-track { background-color:#ddd; border-radius:10px; }
+
+.main_content{position:relative; z-index:2; }
+.main_content:after{content:""; display:block; clear:both; }
+
+.MC_wrap1{ background:url('../../../images/web/gneti/main/m_visual_bg.png') no-repeat center top; padding-top: 40px;}
+.MC_wrap2{ position:relative; background:#f6f8fa url('../../../images/web/gneti/main/bg_wrap2.png') no-repeat calc(50% - 570px) 95%; overflow:hidden;}
+.MC_wrap2:before{ content:""; position:absolute; right:0; width:20%; height:100%; z-index: 1;
+	background: rgb(255,255,255);
+	background: -moz-linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(246,248,250,1) 100%);
+	background: -webkit-linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(246,248,250,1) 100%);
+	background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(246,248,250,1) 100%);
+}
+
+.MC_box1{ width:100%; max-width:1200px; height:425px; }/* 메인비주얼 */
+.MC_box2{ position:relative; width:79%; height:auto; margin:40px 0 50px; float: left; margin-left: -17px;}/* 바로가기 */
+.MC_box3{ position:relative; width:19.2%; height:170px; margin:50px 0; float: right; border-radius: 1rem; background: #2e60b9; overflow: hidden;}/* 바로가기2 */
+.MC_box3::before { content: ''; position:absolute; top: 39px; left:65px; width: 237px; height: 237px; border-radius: 50%; background: rgba(255,255,255,0.05);}
+.MC_box4{ position:relative; width:54%; height:365px; float: left;}/* 행사일정 */
+.MC_box4::before { content: ''; position: absolute; top:0; right: 0; width: 300%; height:100%; border-radius: 0 20px 20px 0; background: #f7f7f7; }
+.MC_box5{ position:relative; width:41.7%; height:365px; float: right; }/* 공지사항 */
+.MC_box6{ position:relative; width:36.7%; height:230px; margin:50px 0; float: left; }/* 팝업존 */
+.MC_box7{ position:relative; width:59.2%; height:230px; max-width:1200px; margin:50px auto; float: right; }/* 포토뉴스 */
+
+/* responsive */
+@media (max-width:1680px){
+	.MC_wrap2{ background-position:-80px 95%;}
+}
+
+@media (max-width:1440px){
+
+}
+
+@media (max-width:1240px){
+	.MC_wrap1{ background-size:200%; }
+
+	#container{ padding-top:80px;}
+
+	.MC_box1{ position:relative; right:auto; top:auto; max-width:100%; height:auto; }/* 메인비주얼 */
+	.MC_box2{ margin-left: 0;}/* 바로가기 */
+	.MC_box4{ width:55%; }/* 행사일정 */
+	.MC_box5{ width:42%;}/* 공지사항 */
+	.MC_box6{ width:38%; }/* 팝업존 */
+}
+
+@media (max-width:1024px){
+	.MC_box2{ padding: 0 20px;}/* 바로가기 */
+}
+
+@media (max-width:960px){
+	.MC_wrap2:before{  width:10%;}
+
+	.MC_box2{ width:74%; }/* 바로가기 */
+	.MC_box3{ width:23%; }/* 바로가기2 */
+	.MC_box4{ width:100%; height:auto; float: none; padding-bottom: 30px; }/* 행사일정 */
+	.MC_box5{ width:100%; height:auto; float: none; margin-top: 50px; }/* 공지사항 */
+}
+
+@media (max-width:768px){
+	.MC_wrap1{ padding-top:30px; }
+	.MC_wrap2{ background-image:none;}
+
+	.MC_box2{ width:70%; margin:40px 0 30px; }/* 바로가기 */
+	.MC_box3{ width:26%; margin:40px 0 30px; }/* 바로가기2 */
+	.MC_box5{ height:auto; margin:30px 0; }/* 공지사항 */
+	.MC_box6{ width:100%; height:auto; margin:0 0 30px; float: none; }/* 팝업존 */
+	.MC_box7{ width:100%; height:auto; margin:0 auto 30px; float: none; }/* 포토뉴스 */
+}
+
+@media (max-width:660px){
+	.MC_box2{ width:62%; }/* 바로가기 */
+	.MC_box3{ width:34%; }/* 바로가기2 */
+}
+
+@media (max-width:580px){
+	#container{ padding-top:60px;}
+
+	.MC_box3 { height:160px; }
+	.MC_box4::before { right:-50px; border-radius:0; }
+}
+
+@media (max-width:480px){
+	.MC_box2{ width:100%; margin:30px 0 10px; }/* 바로가기 */
+	.MC_box3{ width:100%; margin:0 0 30px; padding-right:160px; height:105px; }/* 바로가기2 */
+	.MC_box3::before { top:15px; left:auto; right:-35px; }
+	.MC_box4 { padding-bottom: 20px; }/* 행사일정 */
+}
+
+@media (max-width:380px){
+	.MC_box3{ padding-right:0; height:150px; }/* 바로가기2 */
+}

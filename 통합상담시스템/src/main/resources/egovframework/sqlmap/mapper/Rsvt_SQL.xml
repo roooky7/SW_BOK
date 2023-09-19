@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="egovframework.project.service.impl.RsvtMapper">
+
+	<resultMap type="rsvt" id="rsvtResult">
+		<id property="rsvt_no" column="RSVT_NO" />
+		<result property="pst_ttl_nm" column="PST_TTL_NM" />
+		<result property="s_parents_id" column="S_PARENTS_ID" />
+		<result property="teacher_id" column="TEACHER_ID" />
+		<result property="rsvt_cn" column="RSVT_CN" />
+		<result property="rsvt_dt" column="RSVT_DT" />
+		<result property="rsvt_hr" column="RSVT_HR" />
+		<result property="rsvt_fhr" column="RSVT_FHR" />
+	</resultMap>
+
+	<insert id="insertRsvt">
+		INSERT INTO RSVT(RSVT_NO, PST_TTL_NM, S_PARENTS_ID,
+		TEACHER_ID, RSVT_CN, RSVT_DT, RSVT_HR, RSVT_FHR)
+		VALUES (
+		#{rsvt_no},
+		#{pst_ttl_nm},
+		#{s_parents_id},
+		#{teacher_id},
+		#{rsvt_cn},
+		#{rsvt_dt},
+		#{rsvt_hr},
+		#{rsvt_fhr})
+	</insert>
+
+	<update id="updateRsvt">
+		UPDATE RSVT
+		SET PST_TTL_NM=#{pst_ttl_nm},
+		S_PARENTS_ID=#{s_parents_id},
+		RSVT_CN=#{rsvt_cn}
+		WHERE
+		RSVT_NO=#{rsvt_no}
+	</update>
+
+	<delete id="deleteRsvt">
+		DELETE FROM RSVT
+		WHERE RSVT_NO=#{rsvt_no}
+	</delete>
+
+	<select id="selectRsvt" resultMap="rsvtResult">
+	<![CDATA[
+		SELECT RSVT_NO, PST_TTL_NM,S_PARENTS_ID, TEACHER_ID, RSVT_CN, RSVT_DT
+		FROM RSVT
+		WHERE RSVT_NO=#{rsvt_no}
+		]]>
+	</select>
+
+	<select id="selectRsvtList" resultMap="rsvtResult">
+		SELECT RSVT_NO,
+		PST_TTL_NM, S_PARENTS_ID, TEACHER_ID, RSVT_CN, RSVT_DT, RSVT_HR,
+		RSVT_FHR
+		FROM RSVT
+		ORDER
+		BY RSVT_NO DESC
+	</select>
+
+	<select id="selectTodayRsvtList" resultMap="rsvtResult">
+		SELECT *
+		FROM RSVT
+		WHERE S_PARENTS_ID = #{s_parents_id}
+		AND RSVT_DT = CURDATE();
+
+	</select>
+
+</mapper>

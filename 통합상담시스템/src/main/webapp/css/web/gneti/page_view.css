@@ -1,0 +1,376 @@
+@charset "utf-8";
+
+/* 공통 */
+.img img{max-width:100%;}
+/* 안내문 180825 수정 */
+.info-box {position:relative; padding:30px 30px 30px 140px; color:#333; border:1px solid #ccc; border-bottom:1px solid #2b405b; margin-bottom:30px}
+.info-box:before {position:absolute; top:50%; left:30px; margin-top:-45px; content:""; display:block; width:90px; height:90px; background:url('/images/web/gneti/sub/infobox_ico.png') no-repeat}
+.info-box.ico01:before { background-position:0 0}
+.info-box.ico03:before { background-position:-180px 0}
+.info-box.ico04:before { background-position:-270px 0}
+.info-box.ico05:before { background-position:-360px 0}
+
+/* 오시는길 추가 181120 */
+.fs_map {width:100% !important;}
+
+/* 절차_숫자(정보공개처리절차) 180825 수정 */
+.list_number {overflow:hidden; position:relative; min-height:120px; margin-bottom:3px; border: 1px solid #ddd}
+.list_number .inner {position:relative; padding: 30px 30px 30px 120px;}
+.list_number .inner .numb {position:absolute; top:30px; left:30px; display:block; width:64px; height:64px; background:#7cc576; border-radius:50%; line-height: 62px; font-size:28px; color:#ffffff; font-style: italic; text-align:center}
+.list_number .inner .txtwrap {position:relative;}	
+
+/* 교육장 인사말 */
+.greeting_officer { position:relative}
+.greeting_officer .img { display:block; position:absolute; top:15px; left:0}
+.greeting_officer .txt_hd{ margin-left:268px; font-size:25px; color:#374e66; line-height:140%; letter-spacing:-1.5px; margin-bottom:20px;}
+.greeting_officer .txt_hd em{ font-weight:bold}
+.greeting_officer .col_gr{ color:#179472;}
+.greeting_officer .col_bl{ color:#005ebe;} 
+.greeting_officer .txt_cnt{ margin-left:268px; color:#666; font-size:15px; letter-spacing:-0.5px; line-height:150%; margin-bottom:30px}
+.greeting_officer .txt_cnt em{ font-size:17px; font-weight:bold}
+.greeting_officer .txt_ft{ margin-left:268px; text-align:right; font-size:15px; color:#666;}
+.greeting_officer .txt_ft img{ margin-left:10px; vertical-align:middle}
+
+/* 지원청 CI */
+.ci_wrap {position:relative;}
+.ci_wrap .ci-down{ position:absolute; top:0; right:0}
+.ci_wrap .boxTy03 .box {padding:30px 20px}
+.ci_wrap  p{ font-size:14px; line-height:150%}
+.ci_wrap  p span{ color:#005bbd; font-weight:bold}
+.ci_wrap .logoType{ overflow:hidden}
+.ci_wrap .logoType li{ float:left;  width:48%; margin-left:4%}
+.ci_wrap .logoType li:first-child{ margin-left:0}
+
+/* 연혁 180825 수정 */
+.historyList{ overflow:hidden; text-align:center;}
+.historyList .list{width:100%; font-size:14px; overflow:hidden; background:url('/images/web/gneti/sub/history_line_bg.png') repeat-y center;}
+.historyList .list .last{ width:7px; height:7px; background-color:#ddd; border-radius:50%; position:absolute; left:50%; margin-left:-3.5px; bottom:35px}
+.historyList .list .right{width:50%; margin-right:6px; float:right; background:url('/images/web/gneti/sub/history_right_bg.png') no-repeat left 20px;}
+.historyList .list .right ul{float:right; text-align:left;}
+.historyList .list .left{width:50%; margin-left:6px; float:left; background:url('/images/web/gneti/sub/history_left_bg.png') no-repeat right 20px;}
+.historyList .list .left ul{float:left; text-align:right;}
+.historyList .list ul{width:75%; border-radius:10px; padding:20px 30px; background:#fff; border:1px solid #ddd;}
+.historyList .list ul li{line-height:30px;}
+.historyList .list ul li.tit{font-size:20px; font-weight:bold; color:#001f66; margin-bottom:10px;}
+.historyList .list ul li > span{ font-weight:bold; margin-right:8px}
+.historyList .list .y2010 ul{background:#f2f6fb; border:1px solid #ddd; }
+
+/* 역대교육장 */
+.adminList ul {overflow:hidden}
+.adminList ul li{float:left; width:25%; padding:0 0 30px; margin-bottom:30px; border-bottom:1px solid #ddd;}
+.adminList ul li > div {padding:0 20px}
+.adminList ul li p{font-size:16px; font-weight:bold; line-height:150%; text-align:center; color:#444; }
+.adminList ul li p span{color:#005dbd;}
+.adminList ul li p.date{font-size:14px; font-weight:normal; letter-spacing:0; color:#777;}
+.adminList ul li .img { display:block; background:url('/images/web/gneti/sub/eduspntd_bg.gif') no-repeat; width:180px; height:200px; text-align:center; margin-bottom:15px;}
+.adminList ul li .img img{margin:30px auto;}
+
+/* 교육방향 */
+.edu_direct > h2{width:60%; margin:0px auto 40px auto; font-size:34px; padding:25px 0px; border-top:2px solid #002958; border-bottom:1px solid #ddd; text-align:center;}
+.edu_direct > h2 span{color:#0058bb;}
+.edu_direct .part{width:100%; text-align:center; line-height:80px; display:inline-block;}
+.edu_direct .part img{float:left;}
+.edu_direct .part img:last-child{margin:12px 0px;}
+.edu_direct .title{color:#346496; font-size:30px; line-height:30px; text-align:center;}
+.edu_direct .title div{position: relative; line-height:130%; width:60%; margin:50px auto 20px auto;}
+.edu_direct .title p{color:#16375b}
+.edu_direct .title span{position: absolute; top:0px;}
+.edu_direct .title span.mark01{left:0px;}
+.edu_direct .title span.mark02{right:0px;}
+.edu_direct .arrow{text-align:center; margin:35px auto;}
+.edu_direct .fl_none img{float:none;}
+
+/* 조직업무안내 */
+.systemInfo .tit{position:relative; z-index:10; text-align:center;}
+.systemInfo .wrap{position:relative; z-index:1; top:-5px; display:inline-block; width:90%; background:url('/images/web/gneti/sub/system_bg.gif'); border:1px solid #ddd; padding:25px 4%;}
+.systemInfo .wrap ul{display:inline-block; margin:0 auto; width:100%;}
+.systemInfo .wrap ul li{width:46.7%; height:320px; background:#f6fafe; float:left; text-align:center; border:1px solid #ddd; letter-spacing: -1px;; margin:25px 1.5%;}
+.systemInfo .wrap ul li.sys_tit { height:45px}
+.systemInfo .wrap ul li h2{ font-size:18px;; color:#fff; line-height:45px; background:url('/images/web/gneti/sub/system_tit_bg.gif');}
+.systemInfo .wrap ul li p{margin:20px 15px; border:1px solid #ddd;}
+.systemInfo .wrap ul li p span{background:#fff; border-bottom:1px solid #ddd; display:block; line-height:45px;}
+/*180827*/
+.systemInfo .wrap ul li p span.info_01{background:#f5f9ff url('/images/web/gneti/sub/system_bg2.png');}
+.systemInfo .wrap ul li p span.info_03{background:#f5f9ff url('/images/web/gneti/sub/system_bg2.png');}
+.systemInfo .wrap ul li p span.info_05{background:#f5f9ff url('/images/web/gneti/sub/system_bg2.png');}
+
+/* 청사배치도 */
+.plotPlan .boxTy03 {border-radius:0; text-align:center; margin-bottom:30px;}
+.plotPlan h3{position:absolute; width:66px; height:76px; padding-top:10px; top:0; left:0; background:url('/images/web/gneti/sub/plotPlan_floor.png') no-repeat; font-size:24px; color:#fff; font-weight:bold}
+
+/* 찾아오시는 길 */
+.NaviMap { margin-bottom:30px;}
+.NaviMap .root_daum_roughmap_landing, .root_daum_roughmap{ width:100% !important}
+.locationMap .boxTy03 { border-radius:0;}
+.locationMap .boxTy03 .box{ overflow:hidden; padding: 90px 30px 90px 270px;}
+.locationMap .boxTy03 .box > .tit{ position:absolute; text-align:center;  top:42.5%; margin:-100px 0 0; left:0; width:250px; font-size:24px; color:#002e5f}
+.locationMap .boxTy03 .box > .tit img{ display:block; margin:20px auto}
+.locationMap .addr{ overflow:hidden}
+.locationMap .addr li{line-height:30px; float:left; width:100%; overflow:hidden;  text-align:left;}
+.locationMap .addr li span.tit{ float:left; font-weight:bold; display:block; width:110px; padding-left:15px; color:#003267; background:url('/images/web/gneti/sub/map_addr_dot.png') no-repeat 0 13px;}
+.locationMap .addr li span.ctxt{ float:left; display:block; width:80%}
+.locationMap .addr li span.ctxt2{ float:left; display:block; width:80%;padding-left: 110px;}
+.locationMap .addr .arr{ color:#888;}
+.locationMap dl  dt.tit2{ font-size:16px; font-weight:bold; margin-bottom:5px}
+.locationMap dl + dl { margin-top:10px }
+.locationMap dl dd{ margin-left:10px}
+
+/*  학교분포도 */
+.schlDsp .boxTy03 { border-radius:0;}
+.schlDsp .boxTy03 .box.b01{ overflow:hidden; padding:30px; height:600px} /* 성산 */
+.schlDsp .boxTy03 .box.b02{ overflow:hidden; padding:30px; height:800px} /* 의창 */
+.schlDsp .boxTy03 .box.b03{ overflow:hidden; padding:30px; height:600px} /* 마산회 */
+.schlDsp .boxTy03 .box.b04{ overflow:hidden; padding:30px; height:650px} /* 마산합 */
+.schlDsp .boxTy03 .box.b05{ overflow:hidden; padding:30px; height:600px} /* 진해 */
+.schlDsp .m_menu ul { position:relative;}
+.schlDsp .m_menu li {float:left; padding-left:7px}
+.schlDsp .m_menu li .m_map { display:none; position: absolute; width:100%; text-align:center; top: 80px; left:0}
+.schlDsp .m_menu li .m_map.on { display:block}
+
+/* 사이트맵 180827 추가 */
+.sitemap-wrap {overflow:hidden; line-height:1.6;}
+.sitemap-wrap .sitemap-list { text-align:left; float:left; width:22.75%; padding:0 0 0 3%; margin-bottom:60px; background:url('/images/web/gneti/sub/sitemap_line.gif') repeat-y 5.5% 0}
+.sitemap-wrap .sitemap-list:after { content:''; display:block; clear:both}
+.sitemap-wrap .sitemap-list .tit {font-size:16px; font-weight:bold; color:#fff; text-align:center; margin-bottom:15px; background:#6aaada url('/images/web/gneti/sitemap_bg01.png') no-repeat right 0;}
+.sitemap-wrap .sitemap-list .tit span {color:#fff;}
+.sitemap-wrap .sitemap-list:nth-child(even) .tit {background:#ffa80a url('/images/web/gneti/sub/sitemap_bg02.png') no-repeat right 0;}
+.sitemap-wrap .sitemap-list .tit a {display:block; padding:10px 0 12px 0;}
+.sitemap-wrap .depth2 .lm_l2 {margin:5px 0;}
+.sitemap-wrap .depth2 .lm_a2 {position:relative; font-size:14px; color:#2b405b; padding-left:10px;}
+.sitemap-wrap .depth2 .lm_a2:after {content:''; position:absolute; left:0; top:9px; width:3px; height:3px; background:#2b405b;}
+.sitemap-wrap .depth3 {padding:7px 10px; background:#f1f1f1; margin:6px 0}
+.sitemap-wrap .depth3 .lm_a3 {position:relative; display:block; font-size:13px; color:#666; padding-left:10px;}
+.sitemap-wrap .depth3 .lm_a3:after {content:'';position:absolute; left:0; top:11px; width:5px; height:1px; background:#666;}
+.sitemap-wrap .sitemap-list:first-child, .sitemap-wrap .sitemap-list:nth-child(4n+1){padding-left:0; background-image:none}
+
+/*직무연수 신청하기 221020*/
+.training_list {position: relative; width: 100%; margin-top: 30px; border-top:2px solid #001f66;}
+.training_list > li {display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #ccc;}
+.training_list > li div{padding: 10px;}
+.training_list li div.img {width: 25%;}
+.training_list li div.img p {position: relative; width: 100%; height: 150px; border-radius: 10px; box-shadow: 0 0 5px #00000018; overflow: hidden;}
+.training_list li div.img p img {position: absolute; width: 100%; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+.training_list li div.txt {position: relative; width: 50%;}
+.training_list li div.txt::after {content: ""; display: block; position: absolute; width: 1px; background-color: #f1f1f1; height: 100%; right: 0; top: 50%; transform: translateY(-50%);}
+.training_list li div.txt > ul li {display: inline-block; padding: 0 5px 0 0; border-right: 1px solid #f1f1f1; color: #ccc; text-align: center; font-size: 12px;}
+.training_list li div.txt > ul li:last-child {border-right: none;}
+.training_list li div.txt > dl {margin-top: 20px;}
+.training_list li div.txt > dl dt {font-size: 20px; font-weight: bold; margin-bottom: 20px; line-height: 20px;}
+.training_list li div.txt > dl dd {font-size: 14px; margin-bottom: 5px;} 
+.training_list li div.txt > dl dd.name {font-size: 16px;}
+.training_list li div.btn_wrap{width: 15%;}
+.training_list li div.btn_wrap .btn {display: block; margin-top: 30px; padding: 10px 5px; background: linear-gradient(90deg, #6764df, #345596); background: -webkit-linear-gradient(90deg, #6764df, #345596); font-size: 16px; color: #fff; font-weight: bold;}
+.training_list li div.btn_wrap .btn.v2 {background:linear-gradient(90deg, #fc4d3e, #dd2774); background:-webkit-linear-gradient(90deg, #fc4d3e, #dd2774);} /*접수마감*/
+.training_list li div.btn_wrap .btn.v3 {background:linear-gradient(90deg, #35bd69, #11998e); background:-webkit-linear-gradient(90deg, #35bd69, #11998e);} /*정원충족*/
+.training_list li div.btn_wrap .btn.v4 {background:linear-gradient(90deg, #979797, #676c70); background:-webkit-linear-gradient(90deg, #979797, #676c70);} /*대기중*/
+.training_list li div.btn_wrap .btn.v5 {background:linear-gradient(90deg, #f5af19, #db6d05); background:-webkit-linear-gradient(90deg, #f5af19, #db6d05);} /*설문진행*/
+.training_list li div.btn_wrap .btn.v6 {background:linear-gradient(90deg, #1488CC, #2B32B2); background:-webkit-linear-gradient(90deg, #1488CC, #2B32B2);} /*완료*/
+.training_list li div.btn_wrap .btn.v7 {background:linear-gradient(90deg, #536976, #292E49); background:-webkit-linear-gradient(90deg, #536976, #292E49);} /*신청완료*/
+.training_list li div.btn_wrap .btn.v8 {background:linear-gradient(90deg, #974100, #ec6600); background:-webkit-linear-gradient(90deg, #974100, #ec6600);} /*과정진행*/
+.training_list li div.btn_wrap span em {color: #0058bb; font-weight: bold;}
+.training_list li div.btn_wrap span.txt1 {margin-right: 5px;}
+.training_list li div.btn_wrap span.txt1 em {font-size: 20px;}
+
+/*일반게시판*/
+.BD_list td {padding: 15px 0 !important;font-size: 14px !important;}  /* 221012 */
+.BD_list td:nth-child(4),.BD_list td:nth-child(5),.BD_list td:nth-child(6),.BD_list td:nth-child(7) {padding:15px 0;} /* 221012 */
+
+@media screen and (max-width:1019px) {
+	
+	.historyList .list .right ul, .historyList .list .left ul,
+	.adminList ul li > div  {-webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; box-sizing:border-box}
+
+	/* 교육장 인사말 */
+	.greeting_officer .txt_hd, .greeting_officer .txt_cnt, .greeting_officer .txt_ft{ margin-left:240px}
+	
+	/* 연혁 180825 수정 */
+    .historyList .list .right,  .historyList .list .left{float:none; width:100%; margin:0px; background-image:none;}
+    .historyList .list .right ul, .historyList .list .left ul {float:none !important; width:80%;  margin:20px auto; text-align:left;}
+	.historyList .list ul li.tit{ text-align:center}
+    .historyList .list .left ul:last-child{margin-bottom:0px;}
+	.historyList .list .last{ display:none}
+	
+	/* 역대교육장 */
+	.adminList ul li > div {padding:0 10px}
+	.adminList ul li .img { background-size:contain; background-position: center center; width:100%}
+	
+	/* 교육방향 */
+    .edu_direct > h2{width:90%; margin:0px auto 40px auto;}
+    .edu_direct .title div{width:90%;}
+    .edu_direct .part img{float:none;}
+    .edu_direct .part .line{display:none;}
+    .edu_direct .part .con{margin:20px 0 0 0px;}
+	
+	/* 청사배치도 */
+    .plotPlan img{width:90%; height:auto; margin:0 auto;}
+	
+	/* 찾아오시는 길 */
+	.locationMap .boxTy03 .box{padding: 40px 30px;}
+	.locationMap .boxTy03 .box > .tit{ display:none}
+	.locationMap .addr li span.tit{width:110px;}
+	.locationMap .addr li span.ctxt{width:calc(90% - 110px);}
+	.locationMap .addr li span.ctxt2{width:90%;}
+	
+	/*  학교분포도 */
+	.schlDsp .boxTy03 .box.b01{height:600px} /* 성산 */
+	.schlDsp .m_menu li {padding-left:5px; padding-bottom:5px}
+	.schlDsp .m_menu li .m_map {top:100px}
+	.schlDsp .m_menu li .m_map img { width:80%; height:auto}
+	
+	/* 사이트맵 180827 추가 */
+	.sitemap-wrap .sitemap-list {width:31.333%; margin-left:-4px; float:none; display:inline-block; background-image:none; vertical-align:top}
+	.sitemap-wrap .sitemap-list.first, .sitemap-wrap .sitemap-list:nth-child(3n+1) {padding-left:0;}
+	.sitemap-wrap .sitemap-list:nth-child(5) {padding-left:3%;}
+
+
+
+
+	
+}
+
+
+
+
+
+@media screen and (max-width:800px) {
+	
+	/* 안내문 */
+	.info-box {padding:20px; margin-bottom:20px}
+	.info-box:before {display:none;}
+	
+	/* 교육장 인사말 */
+	.greeting_officer .txt_hd, .greeting_officer .txt_cnt, .greeting_officer .txt_ft{ margin-left:0}
+	.greeting_officer .img {width:auto; display:block; position:relative; top:auto; left:auto; text-align:center; margin-bottom:20px;}
+	.greeting_officer .img img{ width:auto;}
+	
+	/* 지원청 CI */
+	.ci_wrap .ci-down{ position:relative; top:auto; right:auto; margin-bottom:30px}
+	.ci_wrap .logoType li{width:100%; margin-left:0; margin-top:20px}
+	.ci_wrap .logoType li:first-child{ margin-top:0}
+	
+	/* 역대교육장 */
+	.adminList ul li{width:33.3%}
+	
+	/* 조직업무안내 */
+    .systemInfo .wrap ul li{width:46%; margin:10px 4% 10px 0;}
+    .systemInfo .wrap ul li:nth-child(3n){margin-right:4%;}
+    .systemInfo .wrap ul li:nth-child(2n){margin-right:0 !important;}
+	
+	/*  학교분포도 */
+	.schlDsp .boxTy03 .box.b01{height:550px} /* 성산 */
+	.schlDsp .boxTy03 .box.b02{height:750px} /* 의창 */
+	.schlDsp .boxTy03 .box.b04{height:600px} /* 마산합 */
+	.schlDsp .boxTy03 .box.b05{height:600px} /* 진해 */
+	.schlDsp .m_menu li {padding-left:5px; padding-bottom:5px}
+	.schlDsp .m_menu li .m_map {top:100px}
+	.schlDsp .m_menu li .m_map img { width:100%; height:auto}
+
+}
+
+@media screen and (max-width:680px) {
+	
+	/* 안내문 */
+	.info-box {padding:16px}
+	.info-box:before { background-image:none}
+	
+	/* 절차_숫자(정보공개처리절차)  180825 수정 */
+	.list_number .inner {padding:25px;}
+	.list_number .inner .numb { position:static; margin:0 auto 10px}
+	
+	/* 교육장 인사말 */	
+	.greeting_officer .txt_hd{font-size:20px; letter-spacing:-1px}
+	
+	/* 연혁 */ 
+	.historyList > img{ width:50%; height:auto}
+    .historyList .list .right ul, .historyList .list .left ul {width:95%;}
+	.historyList .list ul li > span{ display:block; margin-right:0}
+	
+	/* 역대교육장 */
+	.adminList ul li{width:50%}
+	
+	/* 교육방향 */
+    .edu_direct > h2{font-size:28px;}
+    /* .edu_direct .part .s_tit img{ width:50%;} 180827 수정 */
+    .edu_direct .part .con img{ width:100%;}
+    .edu_direct .title div{margin:80px auto}
+    .edu_direct .title span.mark01{left:10%; top:-45px;}
+    .edu_direct .title span.mark02{right:10%; top:auto; bottom:-30px;}
+	
+	/* 청사배치도 */
+    .plotPlan h3{width:50px; height:60px; font-size:22px; background-size:100% 100%;}
+	
+	/*  학교분포도 */
+	.schlDsp .boxTy03 .box{padding:5% !important}
+	.schlDsp .boxTy03 .box.b01{height:500px} /* 성산 */
+	.schlDsp .boxTy03 .box.b05{height:550px} /* 진해 */
+	.schlDsp .m_menu li .m_map {top:140px}
+	
+	/* 사이트맵 180827 추가 */
+	.sitemap-wrap .sitemap-list {width:48.5%}
+	.sitemap-wrap .sitemap-list:nth-child(3) {padding-left:0;}
+	.sitemap-wrap .sitemap-list:nth-child(4) {padding-left:3%;}
+	.sitemap-wrap .sitemap-list:nth-child(5) {padding-left:0;}
+	
+
+	
+	
+}
+
+@media screen and (max-width:580px) {
+		
+	/* 지원청 CI */
+	.ci_wrap .cg-btn { display:block; margin:0 0 5px}
+	.ci_wrap .logoType li:last-child .boxTy03 .box img { width:70%; height:auto}
+	
+	/* 연혁 */ 
+	.historyList > img{ width:60%}
+	
+	/* 역대교육장 */
+	.adminList ul li{width:100%}
+	
+	/* 교육방향 */
+    .edu_direct > h2{font-size:24px;}
+	
+	/* 청사배치도 */
+    .plotPlan img{width:100%;}
+    .plotPlan h3{width:40px; height:46px; font-size:18px; background-size:100% 100%;}
+	
+	/*  학교분포도 */
+	.schlDsp .boxTy03 .box.b01{height:450px} /* 성산 */
+	.schlDsp .boxTy03 .box.b02{height:600px} /* 의창 */
+	.schlDsp .boxTy03 .box.b04{height:500px} /* 마산합 */
+	.schlDsp .boxTy03 .box.b05{height:500px} /* 진해 */
+
+
+	
+}
+
+@media screen and (max-width:480px) {
+	
+	/* 교육장 인사말 */	
+	.greeting_officer .txt_ft{ text-align:left}
+	
+	/*  학교분포도 */
+	.schlDsp .boxTy03 .box.b01{height:400px} /* 성산 */
+	.schlDsp .boxTy03 .box.b02{height:500px} /* 의창 */
+	.schlDsp .boxTy03 .box.b03{height:400px} /* 마산회 */
+	.schlDsp .boxTy03 .box.b04{height:450px} /* 마산합 */
+	.schlDsp .boxTy03 .box.b05{height:400px} /* 진해 */
+	
+	/* 조직업무 안내 */
+	.systemInfo .wrap ul li{width:96%; height:auto; font-size:13px; line-height:30px; margin:10px 2% !important;}
+    .systemInfo .wrap ul li h2{font-size:15px;}
+	
+	/* 사이트맵 180827 추가 */
+	.sitemap-wrap .sitemap-list {width:100%; padding:0}
+	
+		
+
+	
+}
+
+@media screen and (max-width:380px) {
+		
+
+	
+}

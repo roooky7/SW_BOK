@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="egovframework.project.service.impl.ProjectMapper">
+	<resultMap type="teacher" id="projectResult1">
+		<id property="teacher_id" column="teacher_id" />
+		<result property="teacher_pwd" column="teacher_pwd" />
+		<result property="teacher_nm" column="teacher_nm" />
+		<result property="teacher_cttpc" column="teacher_cttpc" />
+		<result property="teacher_grade" column="teacher_grade" />
+		<result property="teacher_clas" column="teacher_clas" />
+	</resultMap>
+	<resultMap type="s_parents" id="projectResult2">
+		<id property="s_parents_id" column="s_parents_id" />
+		<result property="s_parents_pwd" column="s_parents_pwd" />
+		<result property="s_parents_nm" column="s_parents_nm" />
+		<result property="s_parents_cttpc" column="s_parents_cttpc" />
+		<result property="rel" column="rel" />
+		<result property="chldren_nm" column="chldren_nm" />
+		<result property="chldren_schl" column="chldren_schl" />
+		<result property="chldren_grade" column="chldren_grade" />
+		<result property="chldren_clas" column="chldren_clas" />
+		<result property="chldren_sexdstn" column="chldren_sexdstn" />
+		<result property="chldren_brdt" column="chldren_brdt" />
+	</resultMap>
+
+	<insert id="insertJoin">
+		insert into teacher
+		(teacher_id, teacher_pwd,
+		teacher_nm, teacher_cttpc, teacher_grade, teacher_clas) values(
+		#{teacher_id},
+		#{teacher_pwd},
+		#{teacher_nm},
+		#{teacher_cttpc},
+		#{teacher_grade},
+		#{teacher_clas}
+		)
+	</insert>
+
+	<insert id="insertJoin2">
+		insert into s_parents
+		(s_parents_id, s_parents_pwd,
+		s_parents_nm, s_parents_cttpc, rel, chldren_nm, chldren_schl,
+		chldren_grade,
+		chldren_clas, chldren_sexdstn, chldren_brdt) values(
+		#{s_parents_id},
+		#{s_parents_pwd},
+		#{s_parents_nm},
+		#{s_parents_cttpc},
+		#{rel},
+		#{chldren_nm},
+		#{chldren_schl},
+		#{chldren_grade},
+		#{chldren_clas},
+		#{chldren_sexdstn},
+		#{chldren_brdt}
+		)
+	</insert>
+
+	<select id="idCheck" resultType="String">
+		select teacher_id from teacher
+		where teacher_id=#{teacher_id}
+	</select>
+
+	<select id="idCheck2" resultType="String">
+		select s_parents_id from
+		s_parents
+		where s_parents_id=#{s_parents_id}
+	</select>
+
+	<select id="nmCheck2" resultType="String">
+		select
+		s_parents_id,s_parents_pwd,s_parents_nm from s_parents
+		where s_parents_nm=#{s_parents_nm}
+	</select>
+
+	<select id="login1" resultType="teacher"
+		resultMap="projectResult1">
+		SELECT *
+		FROM teacher
+		WHERE teacher_id = #{teacher_id}
+	</select>
+
+	<select id="login2" resultType="s_parents"
+		resultMap="projectResult2">
+		SELECT * FROM s_parents WHERE s_parents_id = #{s_parents_id}
+	</select>
+
+	<select id="selectLoginCount" resultType="int">
+		select count(*) from
+		teacher
+		where teacher_id=#{teacher_id} and teacher_pwd=#{teacher_pwd}
+	</select>
+
+	<select id="selectLoginCount2" resultType="int">
+		select count(*) from
+		s_parents
+		where s_parents_id=#{s_parents_id} and
+		s_parents_pwd=#{s_parents_pwd}
+	</select>
+
+	<select id="select" resultMap="projectResult1">
+		select teacher_id, teacher_pwd,
+		teacher_nm, teacher_cttpc, teacher_grade, teacher_clas from teacher
+		where teacher_id=#{teacher_id}
+	</select>
+
+	<select id="select2" resultMap="projectResult2">
+		select s_parents_id,
+		s_parents_pwd, s_parents_cttpc, rel, chldren_nm, chldren_schl,
+		chldren_grade,
+		chldren_clas, chldren_sexdstn, chldren_brdt from
+		s_parents
+		where s_parents_id=#{s_parents_id}
+	</select>
+
+	<update id="update">
+		update teacher set teacher_pwd=#{teacher_pwd},
+		teacher_cttpc=#{teacher_cttpc} where teacher_id=#{teacher_id}
+	</update>
+
+	<update id="update2">
+		update s_parents set s_parents_pwd=#{s_parents_pwd},
+		s_parents_nm=#{s_parents_nm}, s_parents_cttpc=#{s_parents_cttpc} where
+		s_parents_id=#{s_parents_id}
+	</update>
+
+	<delete id="delete">
+		delete from teacher where teacher_id=#{teacher_id}
+	</delete>
+
+	<delete id="delete2">
+		delete from s_parents where
+		s_parents_id=#{s_parents_id}
+	</delete>
+
+</mapper>	

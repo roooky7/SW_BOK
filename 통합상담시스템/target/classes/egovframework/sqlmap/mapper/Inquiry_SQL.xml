@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="egovframework.project.service.impl.InquiryMapper">
+
+	<resultMap type="inquiry" id="inquiryResult">
+		<id property="inquiry_id" column="INQUIRY_ID" />
+		<result property="inquiry_ttl" column="INQUIRY_TTL" />
+		<result property="inquiry_writer" column="INQUIRY_WRITER" />
+		<result property="inquiry_cn" column="INQUIRY_CN" />
+		<result property="inquiry_tmd" column="INQUIRY_TMD" />
+		<result property="inquiry_sc" column="INQUIRY_SC" />
+		<result property="inquiry_reply" column="INQUIRY_REPLY" />
+		<result property="inquiry_rcnt" column="INQUIRY_RCNT" />
+		<result property="loggedInUser" column="loggedInUser" />
+		<result property="chldren_grade" column="chldren_grade" />
+		<result property="chldren_clas" column="chldren_clas" />
+		<result property="s_parents_id" column="s_parents_id" />
+	</resultMap>
+
+
+	<insert id="insertInquiry">
+		INSERT INTO INQUIRY_BOARD(INQUIRY_TTL, INQUIRY_WRITER, INQUIRY_CN,
+		INQUIRY_TMD, INQUIRY_SC)
+		VALUES (
+		#{inquiry_ttl},
+		#{inquiry_writer},
+		#{inquiry_cn},
+		NOW(),
+		#{inquiry_sc}
+		)
+	</insert>
+
+	<update id="insertReply">
+		UPDATE INQUIRY_BOARD
+		SET
+		INQUIRY_REPLY=#{inquiry_reply}
+		WHERE INQUIRY_ID=#{inquiry_id}
+	</update>
+
+
+	<update id="updateInquiry">
+		UPDATE INQUIRY_BOARD
+		SET INQUIRY_TTL=#{inquiry_ttl},
+		INQUIRY_WRITER=#{inquiry_writer},
+		INQUIRY_CN=#{inquiry_cn}
+		WHERE INQUIRY_ID=#{inquiry_id}
+	</update>
+
+	<update id="readCount">
+		update INQUIRY_BOARD set INQUIRY_RCNT =INQUIRY_RCNT
+		+1
+		where INQUIRY_ID=#{inquiry_id}
+	</update>
+
+	<delete id="deleteInquiry">
+		DELETE FROM INQUIRY_BOARD
+		WHERE
+		INQUIRY_ID=#{inquiry_id}
+	</delete>
+
+	<update id="deleteReply">
+		UPDATE INQUIRY_BOARD
+		SET INQUIRY_REPLY = NULL
+		WHERE
+		INQUIRY_ID = #{inquiry_id};
+	</update>
+
+	<select id="selectInquiry" resultMap="inquiryResult">
+		SELECT *
+		FROM INQUIRY_BOARD
+		LEFT JOIN (
+		SELECT s_parents_id, chldren_grade, chldren_clas
+		FROM s_parents
+		) AS s_parents_subset
+		ON inquiry_writer = s_parents_subset.s_parents_id
+		WHERE INQUIRY_ID = #{inquiry_id};
+	</select>
+
+	<select id="selectInquiryList" resultMap="inquiryResult">
+		SELECT *, ROW_NUMBER() OVER() AS RN
+		FROM INQUIRY_BOARD
+		LEFT JOIN (
+		SELECT s_parents_nm, chldren_grade, chldren_clas
+		FROM s_parents
+		) AS s_parents_subset
+		ON inquiry_writer = s_parents_subset.s_parents_nm
+		WHERE 1 = 1
+		<if test="searchKeyword != null and searchKeyword != ''">
+			<choose>
+				<when test="searchCondition == 'TITLE'">
+					AND INQUIRY_TTL LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<when test="searchCondition == 'WRITER'">
+					AND INQUIRY_WRITER LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+			</choose>
+		</if>
+		ORDER BY INQUIRY_ID DESC
+		LIMIT #{recordCountPerPage} OFFSET #{firstIndex};
+
+	</select>
+
+	<select id="selectSampleListTotCnt" parameterType="inquiry"
+		resultType="int">
+		SELECT COUNT(*) totCnt
+		FROM INQUIRY_BOARD
+		WHERE 1=1
+		<if test="searchKeyword != null and searchKeyword != ''">
+			<choose>
+				<when test="searchCondition == 'TITLE'">
+					AND INQUIRY_TTL LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<when test="searchCondition == 'WRITER'">
+					AND INQUIRY_WRITER LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+			</choose>
+		</if>
+	</select>
+</mapper>

@@ -1,0 +1,184 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*일정*/
+.sv_calendar_view table {
+	width: 100%;
+	box-sizing: border-box;
+	table-layout: fixed;
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size: 0.9em;
+	border: 1px solid #ddd;
+}
+
+/*현장지원 지원일정표*/
+.su_calendar_view table {
+	width: 100%;
+	box-sizing: border-box;
+	table-layout: fixed;
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size: 0.9em;
+	border: 1px solid #ddd;
+}
+
+/*식단*/
+.dv_calendar_view table tbody td {
+	overflow: auto;
+}
+
+.dv_calendar_view {
+	font-size: 0.9em;
+}
+
+/*공통*/
+.common_calendar .sun {
+	color: red;
+}
+
+.common_calendar .sat {
+	color: blue;
+}
+
+.common_calendar td.today, .common_calendar td.today li.day {
+	background: #fcf8e3;
+}
+
+.common_calendar li.day, .common_calendar li.sun, .common_calendar li.sat
+	{
+	width: 100%;
+	margin-bottom: 6px;
+	text-align: right;
+	background-color: white;
+}
+
+.common_calendar li {
+	margin-top: 1px;
+	border-radius: 5%;
+}
+
+.common_calendar {
+	border-color: #ddd;
+	border: 1px solid #ddd;
+	font-family: '돋움', Dotum, '굴림', Gulim, Helvetica, sans-serif;
+	font-size: 0.9em;
+}
+
+.common_calendar thead, .common_calendar tbody {
+	border-color: #ddd;
+	border: 1px solid #ddd;
+}
+
+.common_calendar th, .common_calendar td {
+	border: 1px solid #ddd;
+	border-style: solid;
+	border-width: 1px;
+	padding: 0;
+	vertical-align: top;
+	height: auto;
+}
+
+.common_calendar th {
+	text-align: center;
+}
+
+.common_calendar .holiday_title {
+	background-color: #F78181;
+	border-color: #F78181
+}
+
+.common_calendar ul {
+	height: auto;
+	overflow: hidden;
+}
+
+table.common_calendar tbody tr {
+	height: 100px;
+}
+
+.calendar2 {
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.calendar2 .calendar-left {
+	float: left;
+}
+
+.calendar2 .calendar-right {
+	float: right;
+}
+
+.calendar2 .calendar_date {
+	display: inline-block;
+	font-size: x-large;
+	font-weight: bold;
+	margin-right: 15%;
+}
+
+.calendar2 button {
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff),
+		to(#e6e6e6));
+	background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+	background-repeat: repeat-x;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	color: #333;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px
+		rgba(0, 0, 0, 0.05);
+	margin: 0;
+	height: 2.1em;
+	padding: 0 .6em;
+	font-size: 1em;
+	white-space: nowrap;
+	cursor: pointer;
+	border: 1px solid #ddd;
+}
+
+.calendar2 .button-left { /* non-theme */
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+.calendar2 .button-right { /* non-theme */
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+.calendar2 .button-today { /* non-theme */
+	cursor: default;
+	background-image: none;
+	opacity: 0.65;
+	box-shadow: none;
+}
+
+.common_calendar a.event {
+	color: #fff;
+}
+
+.common_calendar a:link {
+	color: #fff;
+	text-decoration: none;
+}
+
+.common_calendar a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+.common_calendar a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.common_calendar a.event {
+	display: block;
+	height: 100%;
+	font-weight: bold;
+	padding: 3px;
+} /* 221013 접근성 */
